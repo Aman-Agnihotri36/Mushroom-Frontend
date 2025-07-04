@@ -329,11 +329,7 @@ export default function MushroomFeatureForm() {
 
 
 
-                                                <AlertDescription
-                                                    className={`mt-1 ${prediction === "poisonous" ? "text-red-700" : "text-green-700"}`}
-                                                >
-                                                    Confidence: {confidence}%
-                                                </AlertDescription>
+
                                             </div>
                                         </div>
                                     </Alert>
