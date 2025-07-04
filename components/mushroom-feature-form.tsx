@@ -117,7 +117,7 @@ export default function MushroomFeatureForm() {
     const [completedGroups, setCompletedGroups] = useState<Set<string>>(new Set())
     const [prediction, setPrediction] = useState<string | null>(null)
     const [isClassifying, setIsClassifying] = useState(false)
-    const [confidence, setConfidence] = useState<number | null>(null)
+
 
     const handleFeatureChange = (feature: string, value: string) => {
         const newFeatures = { ...selectedFeatures, [feature]: value }
@@ -164,9 +164,9 @@ export default function MushroomFeatureForm() {
             console.log("API Response:", item)
 
             if (item && item.predicted_class) {
-                const confidenceScore = Math.min(85 + Math.random() * 10, 95)
+
                 setPrediction(item.predicted_class)
-                setConfidence(Math.round(confidenceScore))
+
             } else {
                 setPrediction("Unknown")
             }
@@ -362,7 +362,7 @@ export default function MushroomFeatureForm() {
                                             variant="outline"
                                             onClick={() => {
                                                 setPrediction(null)
-                                                setConfidence(null)
+
                                             }}
                                         >
                                             Clear Result
@@ -372,7 +372,7 @@ export default function MushroomFeatureForm() {
                                             onClick={() => {
                                                 setSelectedFeatures({})
                                                 setPrediction(null)
-                                                setConfidence(null)
+
                                                 setCompletedGroups(new Set())
                                             }}
                                         >
